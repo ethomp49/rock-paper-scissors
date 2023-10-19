@@ -34,70 +34,59 @@ function getRandomInt(n) {
 }
 
 function compareChoices(player, computer) {
-    switch (player) {
-        case 'rock':
-            switch (computer) {
-                case 'rock':
-                    tie(player);
-                    break;
+    if (player === computer) {
+        return tie;
+    } else {    
+        switch (player) {
+            case 'rock':
+                switch (computer) {
+                    case 'paper':
+                        return lose;
 
-                case 'paper':
-                    lose(player, computer);
-                    break;
+                    case 'scissors':
+                        return win;
+                }
+                break;
 
-                case 'scissors':
-                    win(player, computer);
-                    break;
-            }
-            break;
+            case 'paper':
+                switch (computer) {
+                    case 'rock':
+                        return win;
 
-        case 'paper':
-            switch (computer) {
-                case 'rock':
-                    win(player, computer);
-                    break;
+                    case 'scissors':
+                        return lose;
+                }
+                break;
 
-                case 'paper':
-                    tie(player);
-                    break;
+            case 'scissors':
+                switch (computer) {
+                    case 'rock':
+                        return lose;
 
-                case 'scissors':
-                    lose(player, computer);
-                    break;
-            }
-            break;
+                    case 'paper':
+                        return win;
+                }
+                break;
 
-        case 'scissors':
-            switch (computer) {
-                case 'rock':
-                    lose(player, computer);
-                    break;
-
-                case 'paper':
-                    win(player, computer);
-                    break;
-
-                case 'scissors':
-                    tie(player);
-                    break;
-            }
-            break;
-
-        default:
-            throw 'Player choice not recognized';
+            default:
+                throw 'Player choice not recognized';
+        }
     }
 }
 
 function win(player, computer) {
     console.log(`You win! The computer chose ${computer}, and ${player} beats ${computer}!`);
+    return 'win';
 }
 
 function lose(player, computer) {
     console.log(`You lose. The computer chose ${computer}, and ${computer} beats ${player}.`);
+    return 'lose';
 }
 
 function tie(player) {
     console.log(`It's a tie. You both chose ${player}.`)
+    return 'tie';
 }
 
 /* function capitalizeFirst(string) {
@@ -105,7 +94,8 @@ function tie(player) {
 } */
 
 function playRound() {
-    let player = playerChoice();
-    let computer = computerChoice();
-    compareChoices(player, computer);
+    const player = playerChoice();
+    const computer = computerChoice();
+    const result = compareChoices(player, computer);
+    return result(player, computer);
 }
