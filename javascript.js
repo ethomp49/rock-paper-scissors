@@ -101,7 +101,7 @@ function playRound(roundNum) {
 }
 
 function game() {
-    alert('Welcome to Rock, Paper, Scissors! You will be playing 5 rounds against a computer. Close this window to continue.');
+    alert('Welcome to Rock, Paper, Scissors! You will be playing 5 rounds against a computer. Press OK to continue.');
     
     let wins = 0
       , losses = 0
