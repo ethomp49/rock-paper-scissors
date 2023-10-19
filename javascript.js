@@ -1,5 +1,5 @@
-function playerChoice() {
-    let choice = promptChoice();
+function playerChoice(roundNum) {
+    let choice = promptChoice(roundNum);
     while (!(checkChoice(choice))) {
         alert('Choice did not match rock, paper, or scissors. Try again.');
         choice = promptChoice();
@@ -7,8 +7,8 @@ function playerChoice() {
     return choice;
 }
 
-function promptChoice() {
-    const choice =  prompt('Choose Rock, Paper, or Scissors.');
+function promptChoice(roundNum) {
+    const choice =  prompt(`Round #${roundNum}: Choose rock, paper, or scissors.`);
     return choice.toLowerCase();
 }
 
@@ -93,9 +93,13 @@ function tie(player) {
     return string.replace(string[0], string[0].toUpperCase());
 } */
 
-function playRound() {
-    const player = playerChoice();
+function playRound(roundNum) {
+    const player = playerChoice(roundNum);
     const computer = computerChoice();
     const result = compareChoices(player, computer);
     return result(player, computer);
+}
+
+function game() {
+
 }
