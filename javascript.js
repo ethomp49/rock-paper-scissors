@@ -38,15 +38,15 @@ function compareChoices(player, computer) {
         case 'rock':
             switch (computer) {
                 case 'rock':
-                    tie();
+                    tie(player);
                     break;
 
                 case 'paper':
-                    lose();
+                    lose(player, computer);
                     break;
 
                 case 'scissors':
-                    win();
+                    win(player, computer);
                     break;
             }
             break;
@@ -54,15 +54,15 @@ function compareChoices(player, computer) {
         case 'paper':
             switch (computer) {
                 case 'rock':
-                    win();
+                    win(player, computer);
                     break;
 
                 case 'paper':
-                    tie();
+                    tie(player);
                     break;
 
                 case 'scissors':
-                    lose();
+                    lose(player, computer);
                     break;
             }
             break;
@@ -70,15 +70,15 @@ function compareChoices(player, computer) {
         case 'scissors':
             switch (computer) {
                 case 'rock':
-                    lose();
+                    lose(player, computer);
                     break;
 
                 case 'paper':
-                    win();
+                    win(player, computer);
                     break;
 
                 case 'scissors':
-                    tie();
+                    tie(player);
                     break;
             }
             break;
@@ -88,14 +88,18 @@ function compareChoices(player, computer) {
     }
 }
 
-function win() {
-    console.log('You win!');
+function win(player, computer) {
+    console.log(`You win! ${capitalizeFirst(player)} beats ${computer}!`);
 }
 
-function lose() {
-    console.log('You lose!');
+function lose(player, computer) {
+    console.log(`You lose. ${capitalizeFirst(computer)} beats ${player}.`);
 }
 
-function tie() {
-    console.log("It's a tie!")
+function tie(player) {
+    console.log(`It's a tie. You both chose ${player}.`)
+}
+
+function capitalizeFirst(string) {
+    return string.replace(string[0], string[0].toUpperCase());
 }
