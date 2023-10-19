@@ -31,6 +31,7 @@ function compareChoices(player, computer) {
                     win();
                     break;
             }
+            break;
 
         case 'paper':
             switch (computer) {
@@ -46,6 +47,7 @@ function compareChoices(player, computer) {
                     lose();
                     break;
             }
+            break;
 
         case 'scissors':
             switch (computer) {
@@ -61,6 +63,7 @@ function compareChoices(player, computer) {
                     tie();
                     break;
             }
+            break;
 
         default:
             throw 'Player choice not recognized';
