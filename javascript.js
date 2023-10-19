@@ -9,7 +9,7 @@ function playerChoice(roundNum) {
 
 function promptChoice(roundNum) {
     const choice =  prompt(`Round #${roundNum}: Choose rock, paper, or scissors.`);
-    return choice.toLowerCase();
+    return (choice === null) ? null : choice.toLowerCase(); 
 }
 
 function checkChoice(choice) {
