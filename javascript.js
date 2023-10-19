@@ -1,5 +1,5 @@
 function playerChoice() {
-    const choice = prompt('Choose Rock, Paper, or Scissors.').toLowerCase();
+    let choice = prompt('Choose Rock, Paper, or Scissors.').toLowerCase();
     while (!(checkChoice(choice))) {
         alert('Choice did not match rock, paper, or scissors. Try again.');
         choice = prompt('Choose Rock, Paper, or Scissors.').toLowerCase();
