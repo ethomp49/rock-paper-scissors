@@ -75,17 +75,17 @@ function compareChoices(player, computer) {
 }
 
 function win(player, computer) {
-    console.log(`You win! The computer chose ${computer}, and ${player} beats ${computer}!`);
+    alert(`You win! The computer chose ${computer}, and ${player} beats ${computer}!`);
     return 'win';
 }
 
 function lose(player, computer) {
-    console.log(`You lose. The computer chose ${computer}, and ${computer} beats ${player}.`);
+    alert(`You lose. The computer chose ${computer}, and ${computer} beats ${player}.`);
     return 'lose';
 }
 
 function tie(player) {
-    console.log(`It's a tie. You both chose ${player}.`)
+    alert(`It's a tie. You both chose ${player}.`)
     return 'tie';
 }
 
@@ -128,3 +128,5 @@ function game() {
 
     alert(`The game is over. The final results are: ${wins} wins, ${ties} ties, and ${losses} losses.`)
 }
+
+game();
