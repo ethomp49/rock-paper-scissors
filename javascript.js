@@ -1,3 +1,17 @@
+function playerChoice() {
+    const choice = prompt('Choose Rock, Paper, or Scissors.').toLowerCase();
+    if (checkChoice(choice)) {
+        return choice;
+    } else {
+        alert('Choice did not match rock, paper, or scissors. Try again.');
+        playerChoice();
+    }
+}
+
+function checkChoice(choice) {
+    return choice === 'rock' || choice === 'paper' || choice === 'scissors';
+}
+
 function computerChoice() {
     switch (getRandomInt(3)) {
         case 1:
