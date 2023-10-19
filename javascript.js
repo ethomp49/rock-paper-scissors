@@ -89,13 +89,13 @@ function compareChoices(player, computer) {
 }
 
 function win() {
-
+    console.log('You win!');
 }
 
 function lose() {
-
+    console.log('You lose!');
 }
 
 function tie() {
-
+    console.log("It's a tie!")
 }
