@@ -89,20 +89,20 @@ function compareChoices(player, computer) {
 }
 
 function win(player, computer) {
-    console.log(`You win! ${capitalizeFirst(player)} beats ${computer}!`);
+    console.log(`You win! The computer chose ${computer}, and ${player} beats ${computer}!`);
 }
 
 function lose(player, computer) {
-    console.log(`You lose. ${capitalizeFirst(computer)} beats ${player}.`);
+    console.log(`You lose. The computer chose ${computer}, and ${computer} beats ${player}.`);
 }
 
 function tie(player) {
     console.log(`It's a tie. You both chose ${player}.`)
 }
 
-function capitalizeFirst(string) {
+/* function capitalizeFirst(string) {
     return string.replace(string[0], string[0].toUpperCase());
-}
+} */
 
 function playRound() {
     let player = playerChoice();
