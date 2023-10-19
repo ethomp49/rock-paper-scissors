@@ -107,5 +107,5 @@ function capitalizeFirst(string) {
 function playRound() {
     let player = playerChoice();
     let computer = computerChoice();
-    compareChoices();
+    compareChoices(player, computer);
 }
