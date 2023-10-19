@@ -101,5 +101,30 @@ function playRound(roundNum) {
 }
 
 function game() {
+    alert('Welcome to Rock, Paper, Scissors! You will be playing 5 rounds against a computer. Close this window to continue.');
+    
+    let wins = 0
+      , losses = 0
+      , ties = 0
+      , result;
 
+    for (round = 1; round <= 5; round++) {
+        result = playRound(round);
+
+        switch (result) {
+            case 'win':
+                wins++;
+                break;
+
+            case 'lose':
+                losses++;
+                break;
+
+            case 'tie':
+                ties++;
+                break;
+        }
+    }
+
+    alert(`The game is over. The final results are: ${wins} wins, ${ties} ties, and ${losses} losses.`)
 }
