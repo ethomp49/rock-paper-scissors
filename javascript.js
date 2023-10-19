@@ -103,3 +103,9 @@ function tie(player) {
 function capitalizeFirst(string) {
     return string.replace(string[0], string[0].toUpperCase());
 }
+
+function playRound() {
+    let player = playerChoice();
+    let computer = computerChoice();
+    compareChoices();
+}
