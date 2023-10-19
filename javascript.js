@@ -2,7 +2,7 @@ function playerChoice(roundNum) {
     let choice = promptChoice(roundNum);
     while (!(checkChoice(choice))) {
         alert('Choice did not match rock, paper, or scissors. Try again.');
-        choice = promptChoice();
+        choice = promptChoice(roundNum);
     }
     return choice;
 }
