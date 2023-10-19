@@ -40,11 +40,11 @@ function compareChoices(player, computer) {
         switch (player) {
             case 'rock':
                 switch (computer) {
-                    case 'paper':
-                        return lose;
-
                     case 'scissors':
                         return win;
+                        
+                    case 'paper':
+                        return lose;
                 }
                 break;
 
@@ -59,12 +59,12 @@ function compareChoices(player, computer) {
                 break;
 
             case 'scissors':
-                switch (computer) {
-                    case 'rock':
-                        return lose;
-
+                switch (computer) {                    
                     case 'paper':
                         return win;
+
+                    case 'rock':
+                        return lose;
                 }
                 break;
 
