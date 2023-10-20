@@ -89,10 +89,6 @@ function tie(player) {
     return 'tie';
 }
 
-/* function capitalizeFirst(string) {
-    return string.replace(string[0], string[0].toUpperCase());
-} */
-
 function playRound(roundNum) {
     const player = playerChoice(roundNum);
     const computer = computerChoice();
