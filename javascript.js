@@ -77,7 +77,7 @@ function printResult(string) {
 
 function incrementScore(spanName) {
     const scoreSpan = document.querySelector(spanName);
-    const score = +scoreSpan.textContent.slice(-1);
+    const score = +(scoreSpan.textContent.split(":")[1].trimStart());
     const newScore = score + 1;
     scoreSpan.textContent = scoreSpan.textContent.replace(score, newScore);
 }
