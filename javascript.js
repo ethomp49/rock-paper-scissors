@@ -1,21 +1,3 @@
-function playerChoice(roundNum) {
-    let choice = promptChoice(roundNum);
-    while (!(checkChoice(choice))) {
-        alert('Choice did not match rock, paper, or scissors. Try again.');
-        choice = promptChoice(roundNum);
-    }
-    return choice;
-}
-
-function promptChoice(roundNum) {
-    const choice =  prompt(`Round #${roundNum}: Choose rock, paper, or scissors.`);
-    return (choice === null) ? null : choice.toLowerCase(); 
-}
-
-function checkChoice(choice) {
-    return choice === 'rock' || choice === 'paper' || choice === 'scissors';
-}
-
 function computerChoice() {
     switch (getRandomInt(3)) {
         case 1:
@@ -89,40 +71,16 @@ function tie(player) {
     return 'tie';
 }
 
-function playRound(roundNum) {
-    const player = playerChoice(roundNum);
+function printResult(string) {
+    const resultText = document.querySelector(".round-result");
+}
+
+function playRound(e) {
+    const player = e.target.className;
     const computer = computerChoice();
     const result = compareChoices(player, computer);
     return result(player, computer);
 }
 
-function game() {
-    alert('Welcome to Rock, Paper, Scissors! You will be playing 5 rounds against a computer. Press OK to continue.');
-    
-    let wins = 0
-      , losses = 0
-      , ties = 0
-      , result;
-
-    for (round = 1; round <= 5; round++) {
-        result = playRound(round);
-
-        switch (result) {
-            case 'win':
-                wins++;
-                break;
-
-            case 'lose':
-                losses++;
-                break;
-
-            case 'tie':
-                ties++;
-                break;
-        }
-    }
-
-    alert(`The game is over. The final results are: ${wins} wins, ${ties} ties, and ${losses} losses.`)
-}
-
-game();
+const buttonContainer = document.querySelector(".btn-container");
+buttonContainer.addEventListener('click', playRound);
