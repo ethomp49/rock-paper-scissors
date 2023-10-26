@@ -57,22 +57,20 @@ function compareChoices(player, computer) {
 }
 
 function win(player, computer) {
-    alert(`You win! The computer chose ${computer}, and ${player} beats ${computer}!`);
-    return 'win';
+    printResult(`You win! The computer chose ${computer}, and ${player} beats ${computer}!`);
 }
 
 function lose(player, computer) {
-    alert(`You lose. The computer chose ${computer}, and ${computer} beats ${player}.`);
-    return 'lose';
+    printResult(`You lose. The computer chose ${computer}, and ${computer} beats ${player}.`);
 }
 
 function tie(player) {
-    alert(`It's a tie. You both chose ${player}.`)
-    return 'tie';
+    printResult(`It's a tie. You both chose ${player}.`);
 }
 
 function printResult(string) {
     const resultText = document.querySelector(".round-result");
+    resultText.textContent = string;
 }
 
 function playRound(e) {
