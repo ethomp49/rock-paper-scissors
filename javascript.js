@@ -58,12 +58,12 @@ function compareChoices(player, computer) {
 
 function win(player, computer) {
     printResult(`You win! The computer chose ${computer}, and ${player} beats ${computer}!`);
-    incrementScore(".player-wins");
+    return incrementScore(".player-wins");
 }
 
 function lose(player, computer) {
     printResult(`You lose. The computer chose ${computer}, and ${computer} beats ${player}.`);
-    incrementScore(".computer-wins");
+    return incrementScore(".computer-wins");
 }
 
 function tie(player) {
@@ -80,13 +80,23 @@ function incrementScore(spanName) {
     const score = parseInt(scoreSpan.textContent.split(":")[1].trimStart());
     const newScore = score + 1;
     scoreSpan.textContent = scoreSpan.textContent.replace(score, newScore);
+    return newScore;
+}
+
+function incrementRound() {
+    const roundText = document.querySelector(".round-counter");
+    const round = parseInt(roundText.textContent.split(" ")[1].slice(0,-1));
+    const newRound = round + 1;
+    roundText.textContent = roundText.textContent.replace(round, newRound)
 }
 
 function playRound(e) {
     const player = e.target.className;
     const computer = computerChoice();
     const result = compareChoices(player, computer);
-    return result(player, computer);
+    if (result(player, computer) >= 5) {
+        buttonContainer.removeEventListener('click', playRound);
+    }
 }
 
 const buttonContainer = document.querySelector(".btn-container");
