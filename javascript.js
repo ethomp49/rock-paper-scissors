@@ -110,8 +110,18 @@ function playRound(e) {
     const player = e.target.className;
     const computer = computerChoice();
     const result = compareChoices(player, computer);
-    incrementValue("round");
+    const round = incrementValue("round");
     if (result(player, computer) >= 5) {
+        const finalResult = document.querySelector(".final-result");
+        switch (result) {
+            case win:
+                finalResult.textContent = `Congratulations! You beat the computer in ${round - 1} rounds. Refresh the page to play again!`;
+                break;
+
+            case lose:
+                finalResult.textContent = `Sorry! You lost to the computer in ${round - 1} rounds. Refresh the page to try again!`;
+                break;
+        }
         buttonContainer.removeEventListener('click', playRound);
     }
 }
